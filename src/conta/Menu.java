@@ -45,8 +45,8 @@ public class Menu {
 				break;
 			case 3:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Consultar dados da Conta - por número\n\n");
-				Conta c1 = new Conta(123456, 123, 1, "Gabriel Luiz", 2500.0f);
-				c1.visualizar();
+				//Conta c1 = new Conta(123456, 123, 1, "Gabriel Luiz", 2500.0f);
+				//c1.visualizar();
 				
 				break;
 			case 4:
