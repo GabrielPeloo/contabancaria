@@ -14,7 +14,6 @@ public class Menu {
 		// TODO Auto-generated method stub
 		Scanner leia = new Scanner(System.in);
 		
-		ContaController c4 = new ContaController();
 		
 		int opcao;
 		
@@ -40,11 +39,11 @@ public class Menu {
 			
 			case 1:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Criar conta\n\n");
-				
+				System.out.println("Conta primária e secundária criadas!!");
 				break;
 			case 2:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Listar todas as Contas\n\n");
-				
+				System.out.println("Você possui uma conta primária e uma secundária");
 				break;
 			case 3:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Consultar dados da Conta - por número\n\n");
@@ -63,15 +62,18 @@ public class Menu {
 				break;
 			case 6:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Saque\n\n");
-				
+				ContaController c4 = new ContaController(500, 200, 0);
+				c4.sacar();
 				break;
 			case 7:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Depósito\n\n");
-				
+				ContaController c5 = new ContaController(500, 200, 0);
+				c5.depositar();
 				break;
 			case 8:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Transferência entre Contas\n\n");
-				
+				ContaController c6 = new ContaController(500, 200, 0);
+				c6.transferir();
 				break;
 			case 10:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Conta Poupança\n\n");
