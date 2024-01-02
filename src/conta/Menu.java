@@ -2,6 +2,7 @@ package conta;
 
 import java.util.Scanner;
 
+import conta.controller.ContaController;
 import conta.model.Conta;
 import conta.model.ContaCorrente;
 import conta.model.ContaPoupanca;
@@ -12,6 +13,8 @@ public class Menu {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner leia = new Scanner(System.in);
+		
+		ContaController c4 = new ContaController();
 		
 		int opcao;
 		
