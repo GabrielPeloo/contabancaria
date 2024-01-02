@@ -1,6 +1,7 @@
 package conta.controller;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import conta.model.Conta;
@@ -59,11 +60,24 @@ public class ContaController implements ContaRepository {
 	}
 
 	public void sacar() {
+		boolean loop = true;
 		System.out.println("\n *******************************************");
 		System.out.println("Seu saldo é: " + saldoConta1);
-		System.out.println("Digite quanto deseja sacar: ");
-		valorSaldo = leia.nextFloat();
-		System.out.println("Retire o valor de " + valorSaldo +" no caixa!!");
+		do {
+			
+			try {
+				System.out.println("Digite quanto deseja sacar: ");
+				valorSaldo = leia.nextFloat();
+		
+			} catch (InputMismatchException e) {
+				System.out.println("Digite valores númericos!");
+				leia.nextLine();
+				valorSaldo = leia.nextFloat();
+			}finally {
+				loop = false;
+			}
+		}while (loop);
+		System.out.println("\nRetire o valor de " + valorSaldo +" no caixa!!");
 		saldoConta1 -= valorSaldo;
 		System.out.println("Saldo atual: " + saldoConta1);	
 		System.out.println("\n *******************************************");
@@ -71,10 +85,22 @@ public class ContaController implements ContaRepository {
 	}
 	
 	public void depositar() {
+		boolean loop = true;
 		System.out.println("\n *******************************************");
 		System.out.println("Seu saldo é: " + saldoConta1);
-		System.out.println("Digite quanto deseja depositar: ");
-		valorSaldo = leia.nextFloat();
+		do {
+			
+			try {
+				System.out.println("Digite quanto deseja depositar: ");
+				valorSaldo = leia.nextFloat();
+			} catch (InputMismatchException e) {
+				System.out.println("Digite valores númericos!");
+				leia.nextLine();
+				valorSaldo = leia.nextFloat();
+			}finally {
+				loop = false;
+			}
+		}while (loop);
 		System.out.println("Foi depositado o valor de " + valorSaldo +" na sua conta!!");
 		saldoConta1 += valorSaldo;
 		System.out.println("Saldo atual: " + saldoConta1);	
@@ -83,10 +109,22 @@ public class ContaController implements ContaRepository {
 	}
 	
 	public void transferir() {
+		boolean loop = true;
 		System.out.println("\n *******************************************");
 		System.out.println("Seu saldo é: " + saldoConta1);
-		System.out.println("Digite quanto deseja transferir para sua conta secundária: ");
-		valorSaldo = leia.nextFloat();
+		do {
+			
+			try {
+				System.out.println("Digite quanto deseja transferir para sua conta secundária: ");
+				valorSaldo = leia.nextFloat();
+			} catch (InputMismatchException e) {
+				System.out.println("Digite valores númericos!");
+				leia.nextLine();
+				valorSaldo = leia.nextFloat();
+			}finally {
+				loop = false;
+			}
+		}while (loop);
 		System.out.println("Foi transferido o valor de " + valorSaldo +" para sua conta secundária!!");
 		saldoConta1 -= valorSaldo;
 		saldoConta2 += valorSaldo;

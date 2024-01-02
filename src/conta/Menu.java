@@ -1,5 +1,6 @@
 package conta;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import conta.controller.ContaController;
@@ -27,7 +28,20 @@ public class Menu {
 			System.out.println("Entre com a opção desejada:                           ");
 			System.out.println("                                                      "+Cores.TEXT_RESET);
 			
+			boolean loop = true;
+			do {
+				
+				try {
 			opcao = leia.nextInt();
+			
+				} catch (InputMismatchException e) {
+					System.out.println("Digite valores númericos!");
+					leia.nextLine();
+					opcao = leia.nextInt();
+				}finally {
+					loop = false;
+				}
+			}while (loop);
 			
 			if (opcao == 9) {
 				System.out.println(Cores.TEXT_WHITE_BOLD + "\n Banco Obelisco - OBELISCO CAMPEÃO!!");
